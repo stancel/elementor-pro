@@ -48,11 +48,13 @@ class ACF_URL extends Data_Tag {
 		if ( $field ) {
 			$value = $field['value'];
 
-			if ( is_array( $value ) ) {
+			if ( is_array( $value ) && isset( $value[0] ) ) {
 				$value = $value[0];
 			}
 
 			if ( $value ) {
+				$field['return_format'] = isset( $field['save_format'] ) ? $field['save_format'] : $field['return_format'];
+
 				switch ( $field['type'] ) {
 					case 'email':
 						if ( $value ) {
@@ -61,7 +63,8 @@ class ACF_URL extends Data_Tag {
 						break;
 					case 'image':
 					case 'file':
-						switch ( $field['save_format'] ) {
+						switch ( $field['return_format'] ) {
+							case 'array':
 							case 'object':
 								$value = $value['url'];
 								break;
