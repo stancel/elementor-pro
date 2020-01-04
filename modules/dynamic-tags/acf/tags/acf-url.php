@@ -53,7 +53,9 @@ class ACF_URL extends Data_Tag {
 			}
 
 			if ( $value ) {
-				$field['return_format'] = isset( $field['save_format'] ) ? $field['save_format'] : $field['return_format'];
+				if ( empty( $field['return_format'] ) ) {
+					$field['return_format'] = isset( $field['save_format'] ) ? $field['save_format'] : '';
+				}
 
 				switch ( $field['type'] ) {
 					case 'email':

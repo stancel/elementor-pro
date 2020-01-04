@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.8.2 - 19-12-2019 */
+/*! elementor-pro - v2.8.3 - 01-01-2020 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -3895,6 +3895,7 @@ var galleryHandler = function (_elementorModules$fro) {
 				selectors: {
 					container: '.elementor-gallery__container',
 					galleryItems: '.e-gallery-item',
+					galleryItemsHidden: '.e-gallery-item--hidden',
 					galleryImages: '.e-gallery-image'
 				},
 				classes: {
@@ -4061,10 +4062,12 @@ var galleryHandler = function (_elementorModules$fro) {
 		value: function setLightboxGalleryIndex() {
 			var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'all';
 
+			var settings = this.getSettings();
+
 			if ('all' === index) {
-				return this.$element.find(this.getSettings().selectors.galleryItems).attr('data-elementor-lightbox-slideshow', 'all_' + this.getID());
+				return this.$element.find(settings.selectors.galleryItems).attr('data-elementor-lightbox-slideshow', 'all_' + this.getID());
 			}
-			this.$element.find(this.getSettings().selectors.galleryItems).not('.gallery-item--hidden').attr('data-elementor-lightbox-slideshow', index + '_' + this.getID());
+			this.$element.find(settings.selectors.galleryItems).not(settings.selectors.galleryItemsHidden).attr('data-elementor-lightbox-slideshow', index + '_' + this.getID());
 		}
 	}, {
 		key: 'onInit',

@@ -496,6 +496,9 @@ class Skin_Cards extends Skin_Base {
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__read-more' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
+			],
+			[
+				'recursive' => true,
 			]
 		);
 	}

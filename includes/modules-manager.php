@@ -38,6 +38,7 @@ final class Manager {
 			'flip-box',
 			'call-to-action',
 			'carousel',
+			'table-of-contents',
 			'countdown',
 			'share-buttons',
 			'theme-elements',
@@ -49,7 +50,6 @@ final class Manager {
 			'sticky',
 			'wp-cli',
 			'link-actions',
-			'table-of-contents',
 		];
 
 		foreach ( $modules as $module_name ) {

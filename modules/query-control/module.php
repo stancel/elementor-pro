@@ -347,7 +347,7 @@ class Module extends Module_Base {
 
 
 	private function get_titles_query_for_library_template( $data ) {
-		$query = $data['autocomplete']['query'];
+		$query = $data['get_titles']['query'];
 
 		$query['post_type'] = Source_Local::CPT;
 		$query['orderby'] = 'meta_value';

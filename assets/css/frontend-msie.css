@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.8.2 - 19-12-2019 */
+/*! elementor-pro - v2.8.3 - 01-01-2020 */
 @charset "UTF-8";
 .elementor-bg-transform .elementor-bg {
   will-change: transform; }
@@ -5423,9 +5423,7 @@ ul.elementor-nav-menu--dropdown a, ul.elementor-nav-menu--dropdown a:hover, ul.e
     margin-top: 0.5em;
     margin-left: var(--nested-list-indent, 1em); }
   .elementor-toc__list-item-text {
-    color: var(--item-text-color);
-    -webkit-text-decoration: var(--item-text-decoration);
-            text-decoration: var(--item-text-decoration); }
+    color: var(--item-text-color); }
     .elementor-toc__list-item-text:hover {
       color: var(--item-text-hover-color);
       -webkit-text-decoration: var(--item-text-hover-decoration);
@@ -5460,6 +5458,10 @@ ul.elementor-nav-menu--dropdown a, ul.elementor-nav-menu--dropdown a:hover, ul.e
 
 .elementor-toc__heading-anchor {
   position: absolute; }
+
+a.elementor-toc__list-item-text {
+  -webkit-text-decoration: var(--item-text-decoration);
+          text-decoration: var(--item-text-decoration); }
 
 ol.elementor-toc__list-wrapper {
   counter-reset: item; }
