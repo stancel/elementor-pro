@@ -1,4 +1,4 @@
-/*! elementor-pro - v2.8.5 - 08-03-2020 */
+/*! elementor-pro - v2.9.2 - 25-03-2020 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -90,6 +90,19 @@
 /***/ 0:
 /***/ (function(module, exports) {
 
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+
+/***/ }),
+
+/***/ 1:
+/***/ (function(module, exports) {
+
 function _getPrototypeOf(o) {
   module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
     return o.__proto__ || Object.getPrototypeOf(o);
@@ -101,26 +114,13 @@ module.exports = _getPrototypeOf;
 
 /***/ }),
 
-/***/ 1:
-/***/ (function(module, exports) {
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-
-module.exports = _interopRequireDefault;
-
-/***/ }),
-
 /***/ 127:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(1);
+var _interopRequireDefault = __webpack_require__(0);
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -133,7 +133,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(5));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(3));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(0));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(1));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(4));
 
@@ -189,9 +189,11 @@ var Preview = /*#__PURE__*/function (_elementorModules$Vie) {
   }, {
     key: "onDocumentHandleClick",
     value: function onDocumentHandleClick(document) {
+      elementorCommon.api.internal('panel/state-loading');
       elementorCommon.api.run('editor/documents/switch', {
-        id: document.getSettings('id'),
-        mode: 'autosave'
+        id: document.getSettings('id')
+      }).then(function () {
+        return elementorCommon.api.internal('panel/state-ready');
       });
     }
   }, {
@@ -310,16 +312,16 @@ module.exports = _assertThisInitialized;
 /***/ 8:
 /***/ (function(module, exports) {
 
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
-
 function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
     module.exports = _typeof = function _typeof(obj) {
-      return _typeof2(obj);
+      return typeof obj;
     };
   } else {
     module.exports = _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     };
   }
 
